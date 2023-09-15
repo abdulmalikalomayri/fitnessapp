@@ -1,20 +1,36 @@
 import 'package:flutter/material.dart';
-import 'pages/home_page.dart';
 
 void main() {
-  runApp(const MyApp());
-  
+  return runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  const MyApp({ Key? key }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: HomePage(),
-    );
-  }
-}
+    // TODO: implement build
+  return MaterialApp(
+    home: Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.black54,
+        title: Center(
+            child: const Text("أهلا بالعالم")),
+      ),
+      body: Container(
+        child: Text('مرحبا شباب اليوم احلى سكره', style: TextStyle(color: Colors.blueAccent, fontSize: 30)),
+        margin: EdgeInsets.all(10),
+        padding: EdgeInsets.all(20),
+        color: Colors.black,
+        height: 300,
+        width: 300
 
+
+
+      ),
+
+    ),
+  );
+  }
+
+}
