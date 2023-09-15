@@ -17,14 +17,16 @@ class MyApp extends StatelessWidget {
         title: Center(
             child: const Text("أهلا بالعالم")),
       ),
-      body: Container(
-        child: Text('مرحبا شباب اليوم احلى سكره', style: TextStyle(color: Colors.blueAccent, fontSize: 30)),
-        margin: EdgeInsets.all(10),
-        padding: EdgeInsets.all(20),
-        color: Colors.black,
-        height: 300,
-        width: 300
+      body: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        crossAxisAlignment: CrossAxisAlignment.end,
 
+        children: [
+          Icon(Icons.backpack),
+          Icon(Icons.leaderboard),
+          Icon(Icons.person),
+
+        ]
 
 
       ),
