@@ -36,7 +36,12 @@ class _MyAppState extends State<MyApp> {
             Text("let imporve your fitness \nby caluclate your BMI and tracking your calories", style: TextStyle(fontSize: 14, color: Colors.blueGrey[900],),),
             SizedBox(height: 20),
             ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (_) => About()),
+                  );
+                },
                 style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.blueGrey[900],
                     padding: const EdgeInsets.symmetric(
