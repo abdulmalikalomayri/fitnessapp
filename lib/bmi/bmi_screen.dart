@@ -101,7 +101,7 @@ class _BmiScreenState extends State<BmiScreen> {
                             });
                           });
                         },
-                        activeColor: Colors.blue,
+                        activeColor: Colors.black,
                         buttonWidget: const Icon(
                           Icons.arrow_forward_ios_rounded,
                           color: Colors.black,
