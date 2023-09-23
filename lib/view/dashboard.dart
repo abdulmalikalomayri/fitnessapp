@@ -1,24 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:myflutterapp/view/dashboard.dart';
+import 'package:myflutterapp/view/about.dart';
 
-void main() {
-  runApp(
-    
-    MaterialApp(
-      home: MyApp()), // use MaterialApp
-  );
-}
+class Dashboard extends StatelessWidget {
+  const Dashboard({Key? key}) : super(key: key);
 
-class MyApp extends StatefulWidget {
-  @override
-  _MyAppState createState() => _MyAppState();
-
-}
-
-class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
+    
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
@@ -40,7 +29,7 @@ class _MyAppState extends State<MyApp> {
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (_) => Dashboard()),
+                    MaterialPageRoute(builder: (_) => About()),
                   );
                 },
                 
@@ -68,6 +57,3 @@ class _MyAppState extends State<MyApp> {
     );
   }
 }
-
-
-
