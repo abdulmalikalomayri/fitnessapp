@@ -33,23 +33,34 @@ class _MyAppState extends State<MyApp> {
             children: [
             Text("Fitness Tracker", style: TextStyle(fontSize: 50, color: Colors.black),),
             SizedBox(height: 10,), // this line use to create a margin between the two widgets 
-            Text("let imporve your fitness \nby caluclate your BMI and tracking your calories", style: TextStyle(fontSize: 14, color: Colors.blueGrey[900],),),
-            SizedBox(height: 20),
+            Text("let imporve your fitness \nby caluclate your BMI and tracking your calories.", style: TextStyle(fontSize: 14, color: Colors.blueGrey[900],),),
+            SizedBox(height: 30),
             ElevatedButton(
+
                 onPressed: () {
                   Navigator.push(
                     context,
                     MaterialPageRoute(builder: (_) => About()),
                   );
                 },
+                
                 style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.blueGrey[900],
+                    
                     padding: const EdgeInsets.symmetric(
-                        vertical: 20, horizontal: 100)),
-                child: const Text(
+                        vertical: 20, horizontal: 80)),
+                        
+                child: const Row(
+                  mainAxisSize: MainAxisSize.min,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
                   'Get Started',
                   style: TextStyle(fontSize: 25, color: Colors.white),
-                )),
+                  ),
+                  Icon(Icons.arrow_forward, size: 25, color: Colors.white,)
+                  ],)
+            )
           ],)
             
         )
