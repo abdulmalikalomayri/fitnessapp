@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:myflutterapp/bmi/bmi_screen.dart';
 import 'package:myflutterapp/view/about.dart';
 
 class Dashboard extends StatelessWidget {
@@ -20,37 +21,54 @@ class Dashboard extends StatelessWidget {
           (
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-            Text("Fitness Tracker", style: TextStyle(fontSize: 50, color: Colors.black),),
-            SizedBox(height: 10,), // this line use to create a margin between the two widgets 
-            Text("let imporve your fitness \nby caluclate your BMI and tracking your calories.", style: TextStyle(fontSize: 14, color: Colors.blueGrey[900],),),
-            SizedBox(height: 30),
+            // Button BMI caluclator
             ElevatedButton(
-
                 onPressed: () {
                   Navigator.push(
                     context,
                     MaterialPageRoute(builder: (_) => About()),
                   );
                 },
-                
                 style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.blueGrey[900],
-                    
                     padding: const EdgeInsets.symmetric(
-                        vertical: 20, horizontal: 80)),
-                        
-                child: const Row(
-                  mainAxisSize: MainAxisSize.min,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                  'Get Started',
-                  style: TextStyle(fontSize: 25, color: Colors.white),
-                  ),
-                  Icon(Icons.arrow_forward, size: 25, color: Colors.white,)
-                  ],)
-            )
-          ],)
+                        vertical: 20, horizontal: 80)),            
+                child: const Text('Profile',style: TextStyle(fontSize: 25, color: Colors.white),),
+            ),
+            // add margin 
+            SizedBox(height: 30),
+            // Button calories tracker
+            ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (_) => BmiScreen()),
+                  );
+                },
+                style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.blueGrey[900],
+                    padding: const EdgeInsets.symmetric(
+                        vertical: 20, horizontal: 80)),            
+                child: const Text('BMI calculator',style: TextStyle(fontSize: 25, color: Colors.white),),
+            ),
+            // add margin
+            SizedBox(height: 30),
+            // Button about us
+            ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (_) => About()),
+                  );
+                },
+                style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.blueGrey[900],
+                    padding: const EdgeInsets.symmetric(
+                        vertical: 20, horizontal: 80)),            
+                child: const Text('Calroies Tracker',style: TextStyle(fontSize: 25, color: Colors.white),),
+            ),
+
+          ],),
             
         )
         )
