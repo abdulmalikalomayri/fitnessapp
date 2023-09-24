@@ -45,6 +45,7 @@ class _MyAppState extends State<MyApp> {
                 },
                 
                 style: ElevatedButton.styleFrom(
+                    fixedSize: Size(450, 60),
                     backgroundColor: Colors.blueGrey[900],
                     
                     padding: const EdgeInsets.symmetric(

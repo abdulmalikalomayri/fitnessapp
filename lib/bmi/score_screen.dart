@@ -23,18 +23,18 @@ class ScoreScreen extends StatelessWidget {
       appBar: AppBar(
         centerTitle: true,
         title: const Text("BMI Score"),
+        backgroundColor: Colors.blueGrey[900],
       ),
       body: Container(
+          alignment: Alignment.center,
           padding: const EdgeInsets.all(12),
           child: Card(
-              elevation: 12,
-              shape: const RoundedRectangleBorder(),
               child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     const Text(
                       "Your Score",
-                      style: TextStyle(fontSize: 30, color: Colors.blue),
+                      style: TextStyle(fontSize: 30, color: Colors.black),
                     ),
                     const SizedBox(
                       height: 10,
@@ -54,7 +54,7 @@ class ScoreScreen extends StatelessWidget {
                         style: const TextStyle(fontSize: 40),
                       ),
                       currentValue: bmiScore.toDouble(),
-                      needleColor: Colors.blue,
+                      needleColor: Colors.black,
                     ),
                     const SizedBox(
                       height: 10,
@@ -77,15 +77,27 @@ class ScoreScreen extends StatelessWidget {
                             onPressed: () {
                               Navigator.pop(context);
                             },
-                            child: const Text("Re-calculate")),
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: Colors.blueGrey[900],
+                              fixedSize: Size(450, 60),
+                            ),
+                            child: const Text("Re-calculate")
+                            ),
                         const SizedBox(
                           width: 10,
                         ),
+                        const SizedBox(
+                      height: 20,
+                    ),
                         ElevatedButton(
                             onPressed: () {
                               Share.share(
                                   "Your BMI is ${bmiScore.toStringAsFixed(1)} at age $age");
                             },
+                            style: ElevatedButton.styleFrom(
+                              fixedSize: Size(450, 60),
+                              backgroundColor: Colors.blueGrey[900],
+                            ),
                             child: const Text("Share")),
                     
                   ]))),

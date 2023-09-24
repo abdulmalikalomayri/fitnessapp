@@ -15,7 +15,7 @@ class _GenderWidgetState extends State<GenderWidget> {
 
   final ChoiceChip3DStyle selectedStyle = ChoiceChip3DStyle(
       topColor: Colors.grey[200]!,
-      backColor: Colors.grey,
+      backColor: Colors.black,
       borderRadius: BorderRadius.circular(20));
 
   final ChoiceChip3DStyle unselectedStyle = ChoiceChip3DStyle(
