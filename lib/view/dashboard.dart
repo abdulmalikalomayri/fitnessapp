@@ -30,6 +30,7 @@ class Dashboard extends StatelessWidget {
                   );
                 },
                 style: ElevatedButton.styleFrom(
+                    fixedSize: Size(450, 60),
                     backgroundColor: Colors.blueGrey[900],
                     padding: const EdgeInsets.symmetric(
                         vertical: 20, horizontal: 80)),            
@@ -46,6 +47,7 @@ class Dashboard extends StatelessWidget {
                   );
                 },
                 style: ElevatedButton.styleFrom(
+                    fixedSize: Size(450, 60),
                     backgroundColor: Colors.blueGrey[900],
                     padding: const EdgeInsets.symmetric(
                         vertical: 20, horizontal: 80)),            
@@ -62,6 +64,7 @@ class Dashboard extends StatelessWidget {
                   );
                 },
                 style: ElevatedButton.styleFrom(
+                    fixedSize: Size(450, 60),
                     backgroundColor: Colors.blueGrey[900],
                     padding: const EdgeInsets.symmetric(
                         vertical: 20, horizontal: 80)),            

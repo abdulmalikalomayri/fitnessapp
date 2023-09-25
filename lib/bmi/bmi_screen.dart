@@ -29,13 +29,12 @@ class _BmiScreenState extends State<BmiScreen> {
         appBar: AppBar(
           centerTitle: true,
           title: const Text("BMI Calculator"),
+          backgroundColor: Colors.blueGrey[900],
         ),
         body: SingleChildScrollView(
           child: Container(
             padding: const EdgeInsets.all(12),
             child: Card(
-              elevation: 12,
-              shape: const RoundedRectangleBorder(),
               child: Column(
                 children: [
                   // Widget Gender here
@@ -101,7 +100,7 @@ class _BmiScreenState extends State<BmiScreen> {
                             });
                           });
                         },
-                        activeColor: Colors.black,
+                        activeColor: Colors.blue,
                         buttonWidget: const Icon(
                           Icons.arrow_forward_ios_rounded,
                           color: Colors.black,
