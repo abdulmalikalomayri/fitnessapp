@@ -79,7 +79,7 @@ class ScoreScreen extends StatelessWidget {
                             },
                             style: ElevatedButton.styleFrom(
                               backgroundColor: Colors.blueGrey[900],
-                              fixedSize: Size(300, 30),
+                              fixedSize: Size(200, 30),
                             ),
                             child: const Text("Re-calculate")
                             ),
@@ -95,7 +95,7 @@ class ScoreScreen extends StatelessWidget {
                                   "Your BMI is ${bmiScore.toStringAsFixed(1)} at age $age");
                             },
                             style: ElevatedButton.styleFrom(
-                              fixedSize: Size(300, 30),
+                              fixedSize: Size(200, 30),
                               backgroundColor: Colors.blueGrey[900],
                             ),
                             child: const Text("Share")),
