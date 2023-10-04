@@ -44,6 +44,7 @@ dependencies:
   pretty_gauge: ^1.0.1
   share_plus: ^7.1.0
   firebase_core: ^2.16.0
+  firebase_auth: ^4.10.0
 
 
 dev_dependencies:
