@@ -3,6 +3,7 @@ import 'dart:js_interop';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:myflutterapp/signup_screen.dart';
+import 'package:myflutterapp/view/dashboard.dart';
 import 'package:myflutterapp/welcome.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -53,7 +54,7 @@ class _LoginScreenState extends State<LoginScreen> {
       appBar: AppBar(
         title: const Text('Login'),
         automaticallyImplyLeading: false,
-        backgroundColor: Colors.blueGrey[900], // Don't show the back button
+        backgroundColor: Colors.lightBlue[900], // Don't show the back button
 
       ),
       body: Center(
@@ -137,7 +138,7 @@ class _LoginScreenState extends State<LoginScreen> {
                      }
                      Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (_) => Welcome()),
+                      MaterialPageRoute(builder: (_) => Dashboard()),
                      );
                   },
                   child: Text('Login')),

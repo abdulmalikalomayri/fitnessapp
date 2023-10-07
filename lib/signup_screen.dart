@@ -2,6 +2,8 @@ import 'dart:js_interop';
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:myflutterapp/login_screen.dart';
+import 'package:myflutterapp/view/dashboard.dart';
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({Key? key});
@@ -51,7 +53,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
       appBar: AppBar(
         title: const Text('Sign Up'),
         automaticallyImplyLeading: false,
-        backgroundColor: Colors.blueGrey[900],
+        backgroundColor: Colors.lightBlue[900],
       ),
       body: Center(
         // if the parent widget is const the TextFormField will not work!
@@ -116,7 +118,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 InkWell(
                   onTap: () => Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (_) => SignUpScreen()),
+                      MaterialPageRoute(builder: (_) => LoginScreen()),
                      ),
                   child: Text(
                     "Already have an account? Click to Login",

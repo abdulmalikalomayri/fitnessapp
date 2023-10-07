@@ -33,7 +33,7 @@ class _MyAppState extends State<MyApp> {
       home: Scaffold(
         appBar: AppBar(
           title: Text("Home Page"),
-          backgroundColor: Colors.blueGrey[900],
+          backgroundColor: Colors.lightBlue[900],
         ),
         body: Center(
           child: Column
@@ -42,7 +42,7 @@ class _MyAppState extends State<MyApp> {
             children: [
             Text("Fitness Tracker", style: TextStyle(fontSize: 50, color: Colors.black),),
             SizedBox(height: 10,), // this line use to create a margin between the two widgets 
-            Text("let imporve your fitness \nby caluclate your BMI and tracking your calories.", style: TextStyle(fontSize: 14, color: Colors.blueGrey[900],),),
+            Text("let imporve your fitness \nby caluclate your BMI and tracking your calories.", style: TextStyle(fontSize: 14, color: Colors.lightBlue[900],),),
             SizedBox(height: 30),
             ElevatedButton(
                 onPressed: () {
@@ -53,7 +53,7 @@ class _MyAppState extends State<MyApp> {
                 },                
                 style: ElevatedButton.styleFrom(
                     fixedSize: Size(450, 60),
-                    backgroundColor: Colors.blueGrey[900],
+                    backgroundColor: Colors.lightBlue[900],
                     padding: const EdgeInsets.symmetric(
                         vertical: 20, horizontal: 80)),
                 child: const Row(

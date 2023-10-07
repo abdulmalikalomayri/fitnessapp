@@ -23,7 +23,7 @@ class ScoreScreen extends StatelessWidget {
       appBar: AppBar(
         centerTitle: true,
         title: const Text("BMI Score"),
-        backgroundColor: Colors.blueGrey[900],
+        backgroundColor: Colors.lightBlue[900],
       ),
       body: Container(
           alignment: Alignment.center,
@@ -78,7 +78,7 @@ class ScoreScreen extends StatelessWidget {
                               Navigator.pop(context);
                             },
                             style: ElevatedButton.styleFrom(
-                              backgroundColor: Colors.blueGrey[900],
+                              backgroundColor: Colors.lightBlue[900],
                               fixedSize: Size(200, 30),
                             ),
                             child: const Text("Re-calculate")
@@ -96,7 +96,7 @@ class ScoreScreen extends StatelessWidget {
                             },
                             style: ElevatedButton.styleFrom(
                               fixedSize: Size(200, 30),
-                              backgroundColor: Colors.blueGrey[900],
+                              backgroundColor: Colors.lightBlue[900],
                             ),
                             child: const Text("Share")),
                     

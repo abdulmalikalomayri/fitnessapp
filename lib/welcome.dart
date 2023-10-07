@@ -1,7 +1,11 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:myflutterapp/login_screen.dart';
-
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:myflutterapp/bmi/bmi_screen.dart';
+import 'package:myflutterapp/view/about.dart';
 class Welcome extends StatefulWidget {
   const Welcome({Key? key});
 
@@ -23,7 +27,7 @@ class _WelcomeState extends State<Welcome> {
       appBar: AppBar(
         title: Text('Dashboard'),
         automaticallyImplyLeading: false,
-        backgroundColor: Colors.blueGrey[900], // Don't show the back button
+        backgroundColor: Colors.lightBlue[900], // Don't show the back button
       ),
       body: Center(
         child: Padding(

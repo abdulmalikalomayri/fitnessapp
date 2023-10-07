@@ -16,7 +16,8 @@ class GetStarted extends StatelessWidget {
       home: Scaffold(
         appBar: AppBar(
           title: Text("Home Page"),
-          backgroundColor: Colors.blueGrey[900],
+          automaticallyImplyLeading: false,
+          backgroundColor: Colors.lightBlue[900],
         ),
         body: Center(
           child: Column

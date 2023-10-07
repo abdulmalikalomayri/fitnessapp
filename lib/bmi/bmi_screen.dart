@@ -29,7 +29,7 @@ class _BmiScreenState extends State<BmiScreen> {
         appBar: AppBar(
           centerTitle: true,
           title: const Text("BMI Calculator"),
-          backgroundColor: Colors.blueGrey[900],
+          backgroundColor: Colors.lightBlue[900],
         ),
         body: SingleChildScrollView(
           child: Container(
