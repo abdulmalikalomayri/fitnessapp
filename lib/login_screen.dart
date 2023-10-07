@@ -2,19 +2,21 @@ import 'dart:js_interop';
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:myflutterapp/signup_screen.dart';
+import 'package:myflutterapp/welcome.dart';
 
-class SignUpScreen extends StatefulWidget {
-  const SignUpScreen({Key? key});
+class LoginScreen extends StatefulWidget {
+  const LoginScreen({Key? key});
 
   // Create a state class to get a state object which will make the widget stateful
   // The state object contains the widget’s mutable state and the widget’s build() method
   // which means that the state class will give us a changeable screen!
   @override
-  State<SignUpScreen> createState() => _SignUpScreenState();
+  State<LoginScreen> createState() => _LoginScreenState();
 
 }
 
-class _SignUpScreenState extends State<SignUpScreen> {
+class _LoginScreenState extends State<LoginScreen> {
 
   final FirebaseAuth _auth = FirebaseAuth.instance;
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
@@ -28,19 +30,19 @@ class _SignUpScreenState extends State<SignUpScreen> {
   String _email = '';
   // Password State
   String _password = '';
-  // handling validator for SignUp
-  void _handleSignUp() async {
+  // handling validator for Login
+  void _handleLogin() async {
     try {
       // create user with email and password in firebase auth
-      UserCredential userCredential = await _auth.createUserWithEmailAndPassword(
+      UserCredential userCredential = await _auth.signInWithEmailAndPassword(
         email: _email,
         password: _password
       );
       // print in the console if the user is registred successfully!
-      print("User Registered Successfully:  ${userCredential.user!.email!}");
+      print("User Logedd in Successfully:  ${userCredential.user!.email!}");
     }
     catch(e){
-      print("Registration Failed: $e");
+      print("Login Failed: $e");
     }
   }
 
@@ -49,9 +51,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Sign Up'),
+        title: const Text('Login'),
         automaticallyImplyLeading: false,
-        backgroundColor: Colors.blueGrey[900],
+        backgroundColor: Colors.blueGrey[900], // Don't show the back button
+
       ),
       body: Center(
         // if the parent widget is const the TextFormField will not work!
@@ -119,7 +122,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       MaterialPageRoute(builder: (_) => SignUpScreen()),
                      ),
                   child: Text(
-                    "Already have an account? Click to Login",
+                    "Don't have an account? Click to Sign up",
                     style: TextStyle(decoration: TextDecoration.underline, color: Colors.blue),
                   ),
                 ),
@@ -130,10 +133,14 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   onPressed: (){
                      if(_formKey.currentState!.validate()){
                         // if valid then call the handleSignUp function
-                        _handleSignUp();
+                        _handleLogin();
                      }
+                     Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (_) => Welcome()),
+                     );
                   },
-                  child: Text('Sign Up')),
+                  child: Text('Login')),
               ],
             )
           )
