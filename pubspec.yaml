@@ -45,6 +45,8 @@ dependencies:
   share_plus: ^7.1.0
   firebase_core: ^2.16.0
   firebase_auth: ^4.10.0
+  cloud_firestore: ^4.9.3
+  fluttertoast: ^8.2.2
 
 
 dev_dependencies:
