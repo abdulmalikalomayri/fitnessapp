@@ -17,15 +17,12 @@ class SignUpScreen extends StatefulWidget {
 }
 
 class _SignUpScreenState extends State<SignUpScreen> {
-
   final FirebaseAuth _auth = FirebaseAuth.instance;
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
-
   // Email field
   TextEditingController _emailController = TextEditingController();
   // Password field
   TextEditingController _passwordController = TextEditingController();
-
   // Email State 
   String _email = '';
   // Password State
@@ -126,13 +123,16 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   ),
                 ),
                 SizedBox(height: 20,),
-
                 // Submit Button
                 ElevatedButton(
                   onPressed: (){
                      if(_formKey.currentState!.validate()){
                         // if valid then call the handleSignUp function
                         _handleSignUp();
+                        Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (_) => LoginScreen()),
+                     );
                      }
                   },
                   child: Text('Sign Up')),
