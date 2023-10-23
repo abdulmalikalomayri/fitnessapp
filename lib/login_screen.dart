@@ -2,9 +2,9 @@ import 'dart:js_interop';
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:myflutterapp/login_screen.dart';
 import 'package:myflutterapp/signup_screen.dart';
 import 'package:myflutterapp/view/dashboard.dart';
-import 'package:myflutterapp/welcome.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key});
@@ -18,26 +18,28 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-
   final FirebaseAuth _auth = FirebaseAuth.instance;
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
-
   // Email field
   TextEditingController _emailController = TextEditingController();
   // Password field
   TextEditingController _passwordController = TextEditingController();
-
   // Email State 
   String _email = '';
   // Password State
   String _password = '';
-  // handling validator for Login
+  // handling validator for SignUp
   void _handleLogin() async {
     try {
       // create user with email and password in firebase auth
       UserCredential userCredential = await _auth.signInWithEmailAndPassword(
         email: _email,
         password: _password
+      );
+
+      Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (_) => Dashboard()),
       );
       // print in the console if the user is registred successfully!
       print("User Logedd in Successfully:  ${userCredential.user!.email!}");
@@ -123,23 +125,19 @@ class _LoginScreenState extends State<LoginScreen> {
                       MaterialPageRoute(builder: (_) => SignUpScreen()),
                      ),
                   child: Text(
-                    "Don't have an account? Click to Sign up",
+                    "Already have an account? Click to Login",
                     style: TextStyle(decoration: TextDecoration.underline, color: Colors.blue),
                   ),
                 ),
                 SizedBox(height: 20,),
-
                 // Submit Button
                 ElevatedButton(
                   onPressed: (){
                      if(_formKey.currentState!.validate()){
                         // if valid then call the handleSignUp function
                         _handleLogin();
+                        
                      }
-                     Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (_) => Dashboard()),
-                     );
                   },
                   child: Text('Login')),
               ],

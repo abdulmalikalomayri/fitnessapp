@@ -1,21 +1,51 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:myflutterapp/view/calories_result.dart';
 
-class Screen2 extends StatelessWidget {
+class CaloriesResult extends StatefulWidget {
+  const CaloriesResult({Key? key}) : super(key: key);
+
   @override
-  Widget build(BuildContext context) {
-    final result = ModalRoute.of(context)!.settings.arguments as double;
+  State<CaloriesResult> createState() => _CaloriesResultState();
+}
 
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Screen 2'),
-        backgroundColor: Colors.black,
-      ),
-      body: Center(
-        child: Text(
-          'Result: $result',
-          style: TextStyle(fontSize: 24),
-        ),
-      ),
-    );
-  }
+class _CaloriesResultState extends State<CaloriesResult> {
+  // get connection to the users table from firebase
+  final CollectionReference _users = FirebaseFirestore.instance.collection('users');
+
+  @override
+  Widget build(BuildContext context) => Scaffold(
+    appBar: AppBar(
+      title: Text("Add Calories"),
+
+    ),
+    body: StreamBuilder(
+      stream: _users.snapshots(),
+      builder: (context, AsyncSnapshot<QuerySnapshot> streamSnapshot) {
+        if(streamSnapshot.hasData) {
+          return ListView.builder(
+            itemCount: streamSnapshot.data!.docs.length,
+            itemBuilder: (context, index) {
+              final DocumentSnapshot documentSnapshot = streamSnapshot.data!.docs[index];
+              return ListTile(
+                title: Text(documentSnapshot['calorie'].toString()),
+                subtitle: Text(documentSnapshot['date']),
+                trailing: IconButton(
+                  icon: Icon(Icons.delete),
+                  onPressed: () async {
+                    await _users.doc(documentSnapshot.id).delete();
+                  },
+                ),
+              );
+            },
+          );
+        }
+        return Center(
+          child: CircularProgressIndicator(),
+        );
+      }
+      
+    )
+  );
+
 }

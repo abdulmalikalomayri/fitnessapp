@@ -5,6 +5,8 @@ import 'package:myflutterapp/bmi/bmi_screen.dart';
 import 'package:myflutterapp/login_screen.dart';
 import 'package:myflutterapp/view/about.dart';
 import 'package:myflutterapp/view/calories_form.dart';
+import 'package:myflutterapp/view/calories_result.dart';
+import 'package:myflutterapp/view/profile.dart';
 
 class Dashboard extends StatefulWidget {
   const Dashboard({Key? key}) : super(key: key);
@@ -40,7 +42,7 @@ class _DashboardState extends State<Dashboard>{
                   onPressed: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (_) => About()),
+                      MaterialPageRoute(builder: (_) => Profile()),
                     );
                   },
                   style: ElevatedButton.styleFrom(
@@ -82,7 +84,23 @@ class _DashboardState extends State<Dashboard>{
                       backgroundColor: Colors.lightBlue[900],
                       padding: const EdgeInsets.symmetric(
                           vertical: 20, horizontal: 80)),            
-                  child: const Text('Calroies Tracker',style: TextStyle(fontSize: 25, color: Colors.white),),
+                  child: const Text('Add Calroies',style: TextStyle(fontSize: 25, color: Colors.white),),
+              ),
+              // Add margin between the two widgets
+              SizedBox(height: 30),
+              ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (_) => CaloriesResult()),
+                    );
+                  },
+                  style: ElevatedButton.styleFrom(
+                      fixedSize: Size(450, 60),
+                      backgroundColor: Colors.lightBlue[900],
+                      padding: const EdgeInsets.symmetric(
+                          vertical: 20, horizontal: 80)),            
+                  child: const Text('Calroies Result',style: TextStyle(fontSize: 25, color: Colors.white),),
               ),
               // Add margin between the two widgets
               SizedBox(height: 30),
