@@ -4,6 +4,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:myflutterapp/bmi/bmi_screen.dart';
 import 'package:myflutterapp/login_screen.dart';
 import 'package:myflutterapp/view/about.dart';
+import 'package:myflutterapp/view/calories_form.dart';
 
 class Dashboard extends StatefulWidget {
   const Dashboard({Key? key}) : super(key: key);
@@ -73,7 +74,7 @@ class _DashboardState extends State<Dashboard>{
                   onPressed: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (_) => About()),
+                      MaterialPageRoute(builder: (_) => CaloriesForm()),
                     );
                   },
                   style: ElevatedButton.styleFrom(
