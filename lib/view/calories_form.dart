@@ -12,6 +12,9 @@ class CaloriesForm extends StatefulWidget {
 class _CaloriesFormState extends State<CaloriesForm> {
   // get connection to the users table from firebase
   final CollectionReference _users = FirebaseFirestore.instance.collection('users');
+  final TextEditingController _calorieController = TextEditingController();
+  final TextEditingController _dateController = TextEditingController();
+  
 
   @override
   Widget build(BuildContext context) => Scaffold(
@@ -19,33 +22,44 @@ class _CaloriesFormState extends State<CaloriesForm> {
       title: Text("Add Calories"),
 
     ),
-    body: StreamBuilder(
-      stream: _users.snapshots(),
-      builder: (context, AsyncSnapshot<QuerySnapshot> streamSnapshot) {
-        if(streamSnapshot.hasData) {
-          return ListView.builder(
-            itemCount: streamSnapshot.data!.docs.length,
-            itemBuilder: (context, index) {
-              final DocumentSnapshot documentSnapshot = streamSnapshot.data!.docs[index];
-              return ListTile(
-                title: Text(documentSnapshot['calorie'].toString()),
-                subtitle: Text(documentSnapshot['date']),
-                trailing: IconButton(
-                  icon: Icon(Icons.delete),
-                  onPressed: () async {
-                    await _users.doc(documentSnapshot.id).delete();
-                  },
-                ),
+    body: Center(
+      child: Column(
+        children: [
+          TextField(
+            controller: _calorieController,
+            decoration: InputDecoration(
+              labelText: 'Calories',
+            ),
+          ),
+          SizedBox(height: 10,),
+          TextField(
+            controller: _dateController,
+            decoration: InputDecoration(
+              labelText: 'Date',
+            ),
+          ),
+          SizedBox(height: 10,),
+          ElevatedButton(
+            onPressed: () async {
+
+              final String date = _dateController.text;
+              var calorieString = _calorieController.text;
+              final int calorie = int.parse(calorieString);
+              await _users.add({
+                'date': date,
+                'calorie': calorie,
+              });
+
+              Navigator.push(
+              context,
+                MaterialPageRoute(builder: (_) => CaloriesResult()),
               );
-            },
-          );
-        }
-        return Center(
-          child: CircularProgressIndicator(),
-        );
-      }
-      
+            }, 
+            child: Text("Add Calories")
+          )
+          
+        ],
+      ),
     )
   );
-
 }

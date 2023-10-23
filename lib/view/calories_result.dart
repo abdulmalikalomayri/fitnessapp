@@ -13,10 +13,21 @@ class _CaloriesResultState extends State<CaloriesResult> {
   // get connection to the users table from firebase
   final CollectionReference _users = FirebaseFirestore.instance.collection('users');
 
+  // int totalCalories = 0;
+  // int getAllCalories(int cal){
+    
+  //   _users.get().then((QuerySnapshot querySnapshot) {
+  //     querySnapshot.docs.forEach((doc) {
+  //       totalCalories += int.parse(doc["calorie"]);
+  //     });
+  //   });
+  //   return totalCalories;
+  // }
+
   @override
   Widget build(BuildContext context) => Scaffold(
     appBar: AppBar(
-      title: Text("Add Calories"),
+      title: Text("Calories Result"),
 
     ),
     body: StreamBuilder(
